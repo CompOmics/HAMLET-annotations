@@ -1,0 +1,98 @@
+You are a scientific metadata extraction agent specializing in mass spectrometry. Extract ONLY values EXPLICITLY stated in the text.
+
+This paper may describe multiple experimental techniques. Extract ONLY from sections describing the proteomics or mass spectrometry experiment. Ignore all other experimental contexts.
+
+FIELDS TO EXTRACT:
+- acquisition_method: MS acquisition strategy (DDA, DIA, PRM, SRM, targeted)
+- alkylation_reagent: Cysteine alkylation chemical in LC-MS sample prep ONLY (iodoacetamide, chloroacetamide, NEM). NOT fluorescent dyes (Cy2/Cy3/Cy5) used in 2D-DIGE — those are NOT alkylation reagents.
+- alkylation_concentration: Concentration of alkylation_reagent in LC-MS sample prep ONLY
+- cleavage_agent: Protease(s) used (trypsin, Lys-C, chymotrypsin, GluC)
+- collision_energy: Fragmentation energy (NCE, eV values)
+- enrichment_method: Enrichment technique (IMAC, TiO2, antibody, affinity)
+- fractionation_method: Pre-MS fractionation approach (SCX, high-pH, bRP, gel). 2D-DIGE gel separation is NOT LC-MS fractionation.
+- fragmentation_method: MS fragmentation type (HCD, CID, ETD, EThcD)
+- instrument: The PRIMARY LC-MS/MS mass spectrometer model (Q Exactive, Orbitrap Fusion, timsTOF, LTQ). NOT secondary instruments used for validation (e.g., MALDI-TOF used only for spot verification).
+- ionization_type: Ionization source of the primary LC-MS instrument (ESI, nanoESI, MALDI)
+- labeling: Quantification method (TMT, iTRAQ, SILAC, label-free)
+- mass_analyzer: Mass analyser type in the primary MS instrument (Orbitrap, Ion Trap, QTOF, Triple Quadrupole). Infer from instrument model if not stated explicitly (e.g. Q Exactive → Orbitrap).
+- ptm: Post-translational modifications searched (e.g. carbamidomethylation, oxidation, phosphorylation). List all fixed and variable modifications mentioned.
+- reduction_reagent: Disulfide reduction chemical (DTT, TCEP, BME)
+- reduction_concentration: Concentration of reduction reagent
+
+For EACH field output a 2-element list: [extracted_value, evidence_sentence].
+- Copy values EXACTLY as written in text
+- If not explicitly stated → ["unknown", ""]
+- VERBATIM values: the evidence sentence MUST contain the extracted value as a substring.
+- INFERRED values (e.g., labeling inferred as label-free when no labels are mentioned):
+  prefix evidence with "inferred: " followed by a verbatim quote supporting the inference.
+  Example: ["label-free", "inferred: No isobaric labels were used in this study."]
+- Complete ALL fields systematically.
+
+LABELING INFERENCE RULE:
+If no labeling or quantification strategy is mentioned anywhere in the text (no TMT, iTRAQ, SILAC, dimethyl labeling, ICAT, or other isobaric/metabolic labels), then the experiment is label-free. Extract "label-free" with evidence from any sentence describing the quantification or MS analysis approach. Do NOT leave labeling as "unknown".
+Also extract "label-free" if the text explicitly mentions "label-free", "LFQ", "spectral counting", "emPAI", or "intensity-based" quantification.
+
+TEXT:
+DOCUMENT ID: {{ input.id }}
+{{ input.text }}
+
+Return a JSON object with ALL fields present.
+
+
+MULTI-VALUE OUTPUT FORMAT — THIS OVERRIDES ALL EARLIER OUTPUT-FORMAT AND
+DEFAULT-VALUE INSTRUCTIONS:
+- For EVERY field, return a JSON list of one or more objects. Each object must
+  have exactly two string keys: {"value": "...", "evidence": "..."}.
+- Return one object per scientifically distinct value. Never collapse multiple
+  tissues, species, cell types, diseases, instruments, modifications,
+  acquisition modes, treatments, cohorts, or other distinct values into one
+  semicolon-delimited string.
+- Give every value its own supporting evidence. A value and its evidence must
+  describe the SAME experimental sample or proteomics context.
+- Include multiple values only when they genuinely apply to samples deposited
+  in this proteomics dataset. Exclude diseases, tissues, cell lines, organisms,
+  and treatments mentioned only as background, comparison literature, or
+  biological motivation.
+- PRIDE PROJECT PROPERTIES describe the deposited dataset and are authoritative
+  for dataset-level descriptors. Manuscript Methods may add more specific
+  values, but do not replace a PRIDE descriptor with an unrelated contextual
+  mention.
+- Exhaustively map PRIDE descriptors as follows: every `organisms` item to
+  species; every `diseases` item to disease_state; every `instruments` item to
+  instrument; every `modifications` item to ptm; every `experiment types` item
+  to acquisition_method and/or technology_type as scientifically appropriate;
+  and every `quantification` item to labeling. Do not silently drop additional
+  semicolon-separated PRIDE values.
+- Classify each PRIDE `organism parts` item scientifically instead of copying
+  the whole line into one field: anatomical organs/regions go to tissue;
+  biological cell populations go to cell_type; named cell lines go to
+  cell_line; biofluids and culture/material descriptors go to sample_source
+  and/or material_type. A cell type is not a tissue, and a biofluid is not a
+  cell type.
+- For a value taken from PRIDE, evidence MUST be the exact complete source line
+  beginning with `organisms:`, `organism parts:`, `diseases:`, `instruments:`,
+  `modifications:`, `experiment types:`, `quantification:`, or `keywords:`.
+  Never concatenate separate PRIDE lines or paraphrase one.
+- Preserve genuinely mixed datasets as multiple entries instead of choosing
+  one value. Do not invent relationships between entries from different sample
+  contexts.
+- If a field is not stated or safely supported, return exactly
+  [{"value": "unknown", "evidence": ""}]. Never infer a numeric count of 1
+  merely because replicates, samples, fractions, or injections are not stated.
+- Evidence may come ONLY from the manuscript text or PRIDE PROJECT PROPERTIES
+  inside the earlier `TEXT:` block. Never quote or paraphrase any extraction
+  instructions themselves as evidence.
+- A disease mentioned only as motivation, prior knowledge, mutation phenotype,
+  or clinical background is not the disease_state of the measured samples.
+  Include it only when the deposited proteomics samples actually have that
+  disease or PRIDE explicitly assigns it to the dataset.
+- Verbatim values require a verbatim evidence sentence. Inferred values are
+  allowed only where the field instructions explicitly permit inference; their
+  evidence must start with "inferred: " followed by a verbatim supporting quote.
+- For experimental_design and factor_value, never infer a treated-versus-control
+  comparison merely because an abstract describes a treatment, intervention, or
+  disease model. The source must explicitly say that the deposited proteomics
+  samples include the compared treatment and control groups.
+- Copy source typography exactly in evidence, including Unicode hyphens, Greek
+  letters, spacing, and punctuation. Do not explain an inference after the quote:
+  `inferred: ` must be followed only by the verbatim source quote.

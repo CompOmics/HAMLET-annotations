@@ -1,0 +1,988 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HAMLET project-level agent annotations, release candidate 0.1.0",
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": [
+        "value",
+        "evidence"
+      ],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "string"
+        },
+        "ontology_id": {
+          "type": "string"
+        },
+        "ontology_name": {
+          "type": "string"
+        },
+        "normalization_method": {
+          "type": "string"
+        },
+        "normalization_matched_text": {
+          "type": "string"
+        },
+        "synonym_scope": {
+          "type": "string"
+        },
+        "is_normalized": {
+          "type": "boolean"
+        },
+        "similarity": {
+          "type": "number"
+        },
+        "normalization_candidate_ids": {
+          "type": "array"
+        },
+        "normalization_qc_flags": {
+          "type": "array"
+        },
+        "ontology_taxon_constraints": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": false
+    },
+    "biological": {
+      "type": "object",
+      "required": [
+        "species",
+        "tissue",
+        "cell_type",
+        "disease_state",
+        "sample_source",
+        "age",
+        "anatomic_site_tumor",
+        "BMI",
+        "cell_line",
+        "sex",
+        "strain",
+        "material_type",
+        "developmental_stage",
+        "ethnicity"
+      ],
+      "properties": {
+        "species": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "tissue": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "cell_type": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "disease_state": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "sample_source": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "age": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "anatomic_site_tumor": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "BMI": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "cell_line": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "sex": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "strain": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "material_type": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "developmental_stage": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "ethnicity": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "_confidence": {
+          "type": "object"
+        },
+        "_evidence_grounding_flags": {
+          "type": "array"
+        },
+        "_hallucination_flags": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": false
+    },
+    "technical": {
+      "type": "object",
+      "required": [
+        "acquisition_method",
+        "alkylation_reagent",
+        "alkylation_concentration",
+        "cleavage_agent",
+        "collision_energy",
+        "enrichment_method",
+        "fractionation_method",
+        "fragmentation_method",
+        "instrument",
+        "ionization_type",
+        "labeling",
+        "mass_analyzer",
+        "ptm",
+        "reduction_reagent",
+        "reduction_concentration"
+      ],
+      "properties": {
+        "acquisition_method": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "alkylation_reagent": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "alkylation_concentration": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "cleavage_agent": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "collision_energy": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "enrichment_method": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "fractionation_method": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "fragmentation_method": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "instrument": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "ionization_type": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "labeling": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "mass_analyzer": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "ptm": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "reduction_reagent": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "reduction_concentration": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "_confidence": {
+          "type": "object"
+        },
+        "_evidence_grounding_flags": {
+          "type": "array"
+        },
+        "_hallucination_flags": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": false
+    },
+    "experimental_design": {
+      "type": "object",
+      "required": [
+        "biological_replicate",
+        "technical_replicate",
+        "experimental_design",
+        "factor_value",
+        "number_of_fractions",
+        "number_of_technical_replicates",
+        "number_of_biological_replicates",
+        "number_of_samples",
+        "technology_type"
+      ],
+      "properties": {
+        "biological_replicate": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "technical_replicate": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "experimental_design": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "factor_value": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "number_of_fractions": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "number_of_technical_replicates": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "number_of_biological_replicates": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "number_of_samples": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "technology_type": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry"
+              }
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "#/$defs/entry"
+            }
+          ]
+        },
+        "_confidence": {
+          "type": "object"
+        },
+        "_evidence_grounding_flags": {
+          "type": "array"
+        },
+        "_hallucination_flags": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/biological"
+    },
+    {
+      "$ref": "#/$defs/technical"
+    },
+    {
+      "$ref": "#/$defs/experimental_design"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+ontology	configured_file	version	note
+cl	cl.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+uberon	uberon.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+species	species.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+doid	doid.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+psi-ms	psi-ms.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+unimod	unimod.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+bto	bto.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+clo	clo.owl	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+pride-cv	pride-cv.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+mondo	mondo.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+psimod	psimod.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+experimentalfactor	experimentalfactor.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+drosophilaanatomy	drosophilaanatomy.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+plantontology	plantontology.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+zebrafishanatomydevelopment	zebrafishanatomydevelopment.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+flybase	flybase.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+ratstrains	ratstrains.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+chebi	chebi.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified
+phenotypeandtrait	phenotypeandtrait.obo	not_recorded_in_frozen_provenance	Configured resource; historical ontology/index snapshot identity is not verified

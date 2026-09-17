@@ -1,0 +1,13 @@
+LICENSE SELECTION PENDING — LOCAL RELEASE CANDIDATE
+
+The project owners have not yet selected a license for the annotation dataset
+or the accompanying code. This file is a release checklist notice, not a license
+grant. Replace it with approved license terms before public distribution.
+
+Evidence excerpts and any third-party code retain their respective provenance;
+their redistribution must be reviewed separately. Do not interpret this file
+as changing the terms of those materials.
+
+The copied textmining pipeline snapshot retains its upstream Apache-2.0 license,
+provided in provenance/pipeline_snapshot/UPSTREAM_LICENSE. That license is not
+automatically assigned here to manuscript excerpts or the annotation dataset.

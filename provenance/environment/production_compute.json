@@ -1,0 +1,34 @@
+{
+  "main": {
+    "jobs": [
+      "960300_0",
+      "960300_1",
+      "960300_2",
+      "960300_3",
+      "960300_4",
+      "960300_5",
+      "960300_6",
+      "960300_7"
+    ],
+    "allocated_gpu_hours": 3.7683333333333335,
+    "sum_job_seconds": 13566,
+    "start": "2026-09-04T14:53:34",
+    "end": "2026-09-04T19:24:42"
+  },
+  "recovery": {
+    "jobs": [
+      "961580_0",
+      "961580_1",
+      "961580_2",
+      "961580_3"
+    ],
+    "allocated_gpu_hours": 0.4286111111111111,
+    "sum_job_seconds": 1543,
+    "start": "2026-09-04T19:42:03",
+    "end": "2026-09-04T20:07:51"
+  },
+  "gpu": "NVIDIA B300 SXM6 AC",
+  "allocated_cpu_units_per_task": 32,
+  "allocated_host_ram_gib_per_task": 256,
+  "note": "Allocation time includes failed tasks/startup, not GPU kernel utilization; shard jobs were staggered."
+}

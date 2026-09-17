@@ -1,0 +1,18 @@
+{
+  "packages": {
+    "docetl": "0.3.0",
+    "faiss-cpu": "1.15.0",
+    "jsonschema": "4.26.0",
+    "litellm": "1.98.0",
+    "negspacy": "1.1.0",
+    "numpy": "2.4.6",
+    "pydantic": "2.13.4",
+    "PyYAML": "6.0.3",
+    "spacy": "3.8.15",
+    "torch": "2.13.0",
+    "transformers": "5.15.1"
+  },
+  "source": "final_analyses/Staircase/outputs/test/qwen3_8_27b/job_940301/llm_stuff-pip-freeze.txt",
+  "source_sha256": "cd607dfd627d99f55c4a1383573f0140213ca9ef5703191aacd10f9bde7419ac",
+  "caveat": "Recorded host llm_stuff environment from 2026-08-25 staircase job; not a production-job or container pip freeze."
+}

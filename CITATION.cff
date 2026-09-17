@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "Local release candidate: confirm authors and archival citation before citing or publishing."
+title: "HAMLET project-level proteomics metadata annotations"
+type: dataset
+version: "0.1.0-rc1"
+authors:
+  - name: "HAMLET contributors (author list pending confirmation)"
+abstract: "Raw and ontology-normalized HAMLET annotations for 1,737 PRIDE projects using manuscript sections and PRIDE project context."
